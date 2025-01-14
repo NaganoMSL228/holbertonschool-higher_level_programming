@@ -8,4 +8,3 @@ def uppercase(str):
             temp -= 32
         print("{:c}".format(temp), end='')
     print()
-    
