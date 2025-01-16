@@ -26,8 +26,7 @@ def main():
     else:
         print('Unknown operator. Available operators: +, -, * and /')
         exit(1)
-    print(f"{a} {op} {b} = {result}")
-
+        
 
 if __name__ == "__main__":
     main()
