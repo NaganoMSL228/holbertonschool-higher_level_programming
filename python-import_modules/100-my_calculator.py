@@ -13,12 +13,16 @@ def main():
 
     if op == '+':
         result = add(a, b)
+        print(f"{a} + {b} = {result}")
     elif op == '-':
         result = sub(a, b)
+        print(f"{a} - {b} = {result}")
     elif op == '*':
         result = mul(a, b)
+        print(f"{a} * {b} = {result}")
     elif op == '/':
         result = div(a, b)
+        print(f"{a} / {b} = {result}")
     else:
         print('Unknown operator. Available operators: +, -, * and /')
         exit(1)
