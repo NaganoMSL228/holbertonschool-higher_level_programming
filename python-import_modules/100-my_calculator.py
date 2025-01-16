@@ -9,21 +9,21 @@ if __name__ == "__main__":
         exit(1)
 
     a = int(argv[1])
-    operator = argv[2]
+    op = argv[2]
     b = int(argv[3])
 
-    if operator == '+':
+    if op == '+':
         result = add(a, b)
         print(f"{a} + {b} = {result}")
-    elif operator == '-':
+    elif op == '-':
         result = sub(a, b)
         print(f"{a} - {b} = {result}")
-    elif operator == '*':
+    elif op == '*':
         result = mul(a, b)
         print(f"{a} * {b} = {result}")
-    elif operator == '/':
+    elif op == '/':
         if b == 0:
-            print("Error: Division by zero")
+            print("Error: Division the zéro")
             exit(1)
         result = div(a, b)
         print(f"{a} / {b} = {result}")
