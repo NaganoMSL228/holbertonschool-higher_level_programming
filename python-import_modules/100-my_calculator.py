@@ -4,12 +4,12 @@ from sys import argv, exit
 
 
 def main():
-    if len(sys.argv) != 4:
+    if len() != 4:
         print("Usage: ./100-my_calculator.py <a> <operator> <b>")
         exit(1)
-    a = int(sys.argv[1])
-    op = sys.argv[2]
-    b = int(sys.argv[3])
+    a = int([1])
+    op = [2]
+    b = int([3])
 
     if op == '+':
         result = add(a, b)
