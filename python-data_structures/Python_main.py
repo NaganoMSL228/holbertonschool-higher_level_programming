@@ -37,7 +37,6 @@ print(my_list)
 ''',
 
     '2-uniq_add.py' : '''#!/usr/bin/python3
-
 def uniq_add(my_list=[]):
 ''',
 
@@ -49,7 +48,6 @@ result = uniq_add(my_list)
 print("Result: {:d}".format(result))
 ''',
     '3-common_elements.py' : '''#!/usr/bin/python3
-
 def common_elements(set_1, set_2):
 ''',
     '3-main.py' : '''#!/usr/bin/python3
@@ -61,7 +59,6 @@ c_set = common_elements(set_1, set_2)
 print(sorted(list(c_set)))
 ''',
     '4-only_diff_elements.py' : '''#!/usr/bin/python3
-
 def only_diff_elements(set_1, set_2):
 ''',
     '4-main.py' : '''#!/usr/bin/python3
@@ -73,7 +70,6 @@ od_set = only_diff_elements(set_1, set_2)
 print(sorted(list(od_set)))
 ''',
     '5-number_keys.py' : '''#!/usr/bin/python3
-
 def number_keys(a_dictionary):
 ''',
     '5-main.py' : '''#!/usr/bin/python3
@@ -84,7 +80,6 @@ nb_keys = number_keys(a_dictionary)
 print("Number of keys: {:d}".format(nb_keys))
 ''',
     '6-print_sorted_dictionary.py' : '''#!/usr/bin/python3
-
 def print_sorted_dictionary(a_dictionary):
 ''',
     '6-main.py' : '''#!/usr/bin/python3
@@ -94,8 +89,13 @@ a_dictionary = { 'language': "C", 'Number': 89, 'track': "Low level", 'ids': [1,
 print_sorted_dictionary(a_dictionary)
 ''',
     '7-update_dictionary.py' : '''#!/usr/bin/python3
-
 def update_dictionary(a_dictionary, key, value):
 ''',
     '7-main.py' : '''#!/usr/bin/python3
-... (118lignes restantes)
+update_dictionary = __import__('7-update_dictionary').update_dictionary
+print_sorted_dictionary = __import__('6-print_sorted_dictionary').print_sorted_dictionary
+
+a_dictionary = { 'language': "C", 'number': 89, 'track': "Low level" }
+new_dict = update_dictionary(a_dictionary, 'language', "Python")
+print_sorted_dictionary(new_dict)
+... (112lignes restantes)
