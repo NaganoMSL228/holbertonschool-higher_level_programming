@@ -1,10 +1,9 @@
 #!/usr/bin/python3
-divisible_by_2 = __import__('10-divisible_by_2').divisible_by_2
+best_score = __import__('10-best_score').best_score
 
-my_list = [0, 1, 2, 3, 4, 5, 6]
-list_result = divisible_by_2(my_list)
+a_dictionary = {'John': 12, 'Bob': 14, 'Mike': 14, 'Molly': 16, 'Adam': 10}
+best_key = best_score(a_dictionary)
+print("Best score: {}".format(best_key))
 
-i = 0
-while i < len(list_result):
-    print("{:d} {:s} divisible by 2".format(my_list[i], "is" if list_result[i] else "is not"))
-    i += 1
+best_key = best_score(None)
+print("Best score: {}".format(best_key))

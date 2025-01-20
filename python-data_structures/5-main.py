@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-no_c = __import__('5-no_c').no_c
+number_keys = __import__('5-number_keys').number_keys
 
-print(no_c("Best School"))
-print(no_c("Chicago"))
-print(no_c("C is fun!"))
+a_dictionary = { 'language': "C", 'number': 13, 'track': "Low level" }
+nb_keys = number_keys(a_dictionary)
+print("Number of keys: {:d}".format(nb_keys))
