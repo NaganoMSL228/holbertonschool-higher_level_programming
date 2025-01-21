@@ -1,21 +1,26 @@
 #!/usr/bin/python3
 """
-This module provides a function to print a user's full name.
+This module contains a function that prints a user's full name.
 """
-
 
 def say_my_name(first_name, last_name=""):
     """
-    Prints a string with the first and last name.
+    Prints a formatted string with the user's first and last name.
 
     Args:
-        first_name (str): The first name.
-        last_name (str): The last name.
+        first_name (str): The first name of the user.
+        last_name (str): The last name of the user (optional).
+        
     Raises:
-        TypeError: If first_name or last_name isn't a string.
+        TypeError: If first_name or last_name is not a string.
     """
+    # Validate that first_name is a string
     if not isinstance(first_name, str):
         raise TypeError("first_name must be a string")
+    
+    # Validate that last_name is a string
     if not isinstance(last_name, str):
         raise TypeError("last_name must be a string")
-    print("My name is {} {}".format(first_name, last_name))
+    
+    # Print the formatted name using an f-string
+    print(f"My name is {first_name} {last_name}".strip())
