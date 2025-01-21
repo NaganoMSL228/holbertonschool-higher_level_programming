@@ -4,6 +4,7 @@
 import unittest
 max_integer = __import__('6-max_integer').max_integer
 
+
 class TestMaxInteger(unittest.TestCase):
     def test_regular_list(self):
         """Test with a regular list of integers"""
@@ -47,6 +48,12 @@ class TestMaxInteger(unittest.TestCase):
         """Test with None as argument"""
         with self.assertRaises(TypeError):
             max_integer(None)
+
+    def test_no_arguments(self):
+        """Test with no arguments"""
+        with self.assertRaises(TypeError):
+            max_integer()
+
 
 if __name__ == '__main__':
     unittest.main()
