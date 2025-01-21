@@ -31,7 +31,4 @@ def text_indentation(text):
             skip_space = False
 
     print(result.strip())
-
-if __name__ == "__main__":
-    import doctest
-    doctest.testfile("tests/5-text_indentation.txt")
+    
