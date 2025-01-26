@@ -1,55 +1,45 @@
 #!/usr/bin/python3
-'''Module for the Square class'''
+'''Module for Square class'''
 
 
 class Square:
     '''A class representing a square.'''
 
-    def __init__(self, size=0, position=(0, 0)):
-        '''Initializes the square with a given size and position.'''
-        self.size = size      # Use the setter to validate size
-        self.position = position  # Use the setter to validate position
+    def __init__(self, size=0):
+        '''Initialize the square with a given size.'''
+        self.size = size  # Use the setter to validate size
 
     @property
     def size(self):
-        '''Getter for size.'''
+        '''Retrieve the size of the square.'''
         return self.__size
 
     @size.setter
     def size(self, value):
-        '''Setter for size with validation.'''
+        '''Set the size of the square with validation.'''
         if not isinstance(value, int):
             raise TypeError("size must be an integer")
         if value < 0:
             raise ValueError("size must be >= 0")
         self.__size = value
 
-    @property
-    def position(self):
-        '''Getter for position.'''
-        return self.__position
-
-    @position.setter
-    def position(self, value):
-        '''Setter for position with validation.'''
-        if (not isinstance(value, tuple) or
-                len(value) != 2 or
-                not all(isinstance(i, int) and i >= 0 for i in value)):
-            raise TypeError("position must be a tuple of 2 positive integers")
-        self.__position = value
-
     def area(self):
-        '''Returns the area of the square.'''
+        '''Return the area of the square.'''
         return self.__size ** 2
 
     def my_print(self):
-        '''Prints the square using the character #.'''
+        '''Print the square using the character #.'''
         if self.size == 0:
-            print("")  # Print an empty line if size is 0
+            print()  # Print an empty line if size is 0
             return
 
-        # Print empty lines based on position[1]
-        print("\n" * self.position[1], end="")
+        # Print each row of the square
+        for _ in range(self.size):
+            print("#" * self.size)
 
-        # Print the square with spaces based on position[0]
-        for _ in rang
+
+# Example usage of the Square class
+if __name__ == "__main__":
+    square = Square(3)
+    square.my_print()  # Print the square
+    print(f"Area: {square.area()}")  # Print the area
