@@ -3,7 +3,7 @@
 N Queens Solver
 
 This module solves the N Queens problem, placing N non-attacking queens
-on an N×N chessboard.
+on an NxN chessboard.
 """
 
 import sys
@@ -52,18 +52,21 @@ def solve_nqueens(board, col, n, solutions):
     Returns:
         None
     """
-    # If all queens are placed successfully
     if col >= n:
-        solution = [(i, j) for i in range(n) for j in range(n) if board[i][j] == 1]
+        solution = [
+            (i, j)
+            for i in range(n)
+            for j in range(n)
+            if board[i][j] == 1
+        ]
         solutions.append(solution)
         return
 
-    # Try placing a queen in each row of the current column
     for row in range(n):
         if is_safe(board, row, col, n):
-            board[row][col] = 1  # Place queen
-            solve_nqueens(board, col + 1, n, solutions)  # Recur to place next queen
-            board[row][col] = 0  # Backtrack
+            board[row][col] = 1
+            solve_nqueens(board, col + 1, n, solutions)
+            board[row][col] = 0
 
 
 def nqueens(n):
@@ -76,29 +79,24 @@ def nqueens(n):
     Returns:
         None
     """
-    # Validate input
     if not isinstance(n, int):
         print("N must be a number")
         sys.exit(1)
-    
+
     if n < 4:
         print("N must be at least 4")
         sys.exit(1)
 
-    # Initialize the chessboard
     board = [[0] * n for _ in range(n)]
     solutions = []
-    
     solve_nqueens(board, 0, n, solutions)
 
-    # Print all found solutions
     for solution in solutions:
         print(solution)
 
 
 if __name__ == "__main__":
     """Entry point of the program."""
-    
     if len(sys.argv) != 2:
         print("Usage: nqueens N")
         sys.exit(1)
