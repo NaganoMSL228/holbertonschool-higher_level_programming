@@ -2,8 +2,8 @@
 """
 N Queens Solver
 
-This module solves the N Queens problem, placing N non-attacking queens
-on an NxN chessboard.
+This module solves the N Queens problem, which is the challenge of placing N
+non-attacking queens on an N×N chessboard.
 """
 
 import sys
@@ -11,29 +11,30 @@ import sys
 
 def is_safe(board, row, col, n):
     """
-    Determine if placing a queen at board[row][col] is safe.
+    Check if it's safe to place a queen at board[row][col]
 
     Args:
-        board (list): Current state of the chessboard.
-        row (int): Row index for the queen.
-        col (int): Column index for the queen.
-        n (int): Size of the board.
+    board (list): The current state of the chessboard
+    row (int): The row to check
+    col (int): The column to check
+    n (int): The size of the board
 
     Returns:
-        bool: True if safe, False otherwise.
+    bool: True if it's safe to place a queen, False otherwise
     """
-    # Check for queens in the same row to the left
-    if any(board[row][i] == 1 for i in range(col)):
-        return False
-
-    # Check upper diagonal on the left
-    for i in range(row, -1, -1):
-        if board[i][col] == 1:
+    # Check this row on left side
+    for i in range(col):
+        if board[row][i] == 1:
             return False
 
-    # Check lower diagonal on the left
-    for i in range(row, n):
-        if board[i][col] == 1:
+    # Check upper diagonal on left side
+    for i, j in zip(range(row, -1, -1), range(col, -1, -1)):
+        if board[i][j] == 1:
+            return False
+
+    # Check lower diagonal on left side
+    for i, j in zip(range(row, n, 1), range(col, -1, -1)):
+        if board[i][j] == 1:
             return False
 
     return True
@@ -41,53 +42,51 @@ def is_safe(board, row, col, n):
 
 def solve_nqueens(board, col, n, solutions):
     """
-    Recursively find all solutions to the N Queens problem.
+    Recursively solve the N Queens problem
 
     Args:
-        board (list): Current state of the chessboard.
-        col (int): Current column being processed.
-        n (int): Size of the board.
-        solutions (list): List to store found solutions.
+    board (list): The current state of the chessboard
+    col (int): The current column being processed
+    n (int): The size of the board
+    solutions (list): List to store all found solutions
 
     Returns:
-        None
+    None
     """
     if col >= n:
-        solution = [
-            (i, j)
-            for i in range(n)
-            for j in range(n)
-            if board[i][j] == 1
-        ]
+        solution = []
+        for i in range(n):
+            for j in range(n):
+                if board[i][j] == 1:
+                    solution.append([i, j])
         solutions.append(solution)
         return
 
-    for row in range(n):
-        if is_safe(board, row, col, n):
-            board[row][col] = 1
+    for i in range(n):
+        if is_safe(board, i, col, n):
+            board[i][col] = 1
             solve_nqueens(board, col + 1, n, solutions)
-            board[row][col] = 0
+            board[i][col] = 0
 
 
 def nqueens(n):
     """
-    Solve and print all solutions for N Queens.
+    Solve and print all solutions to the N Queens problem
 
     Args:
-        n (int): Size of the board and number of queens.
+    n (int): The size of the board and number of queens
 
     Returns:
-        None
+    None
     """
     if not isinstance(n, int):
         print("N must be a number")
         sys.exit(1)
-
     if n < 4:
         print("N must be at least 4")
         sys.exit(1)
 
-    board = [[0] * n for _ in range(n)]
+    board = [[0 for _ in range(n)] for _ in range(n)]
     solutions = []
     solve_nqueens(board, 0, n, solutions)
 
@@ -96,7 +95,9 @@ def nqueens(n):
 
 
 if __name__ == "__main__":
-    """Entry point of the program."""
+    """
+    Main entry point of the program
+    """
     if len(sys.argv) != 2:
         print("Usage: nqueens N")
         sys.exit(1)
