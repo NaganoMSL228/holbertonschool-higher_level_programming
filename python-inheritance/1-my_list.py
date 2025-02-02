@@ -1,10 +1,9 @@
 #!/usr/bin/python3
-'''This module defines a class MyList that extends the built-in list class.'''
+'''This module creates a class named MyList that inherits from list.'''
 
 
 class MyList(list):
-    '''A class that inherits from the built-in list class.'''
-    
+    '''This class inherits from list.'''
     def print_sorted(self):
-        '''Prints the elements of the list in ascending order.'''
+        '''Prints the list sorted.'''
         print(sorted(self))
