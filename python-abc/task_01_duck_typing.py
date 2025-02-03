@@ -39,3 +39,14 @@ class Rectangle(Shape):
 def shape_info(shape):
     print(f"Area: {shape.area()}")
     print(f"Perimeter: {shape.perimeter()}")
+
+
+class Circle(Shape):
+    def __init__(self, radius):
+        self.radius = radius
+
+    def area(self):
+        return math.pi * abs(self.radius) ** 2
+
+    def perimeter(self):
+        return 2 * math.pi * abs(self.radius)
