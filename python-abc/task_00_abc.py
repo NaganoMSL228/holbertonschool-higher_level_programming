@@ -1,10 +1,14 @@
-from task_00_abc import Animal, Dog, Cat
+from abc import ABC, abstractmethod
 
-chien = Dog()
-chat = Cat()
+class Animal(ABC):
+    @abstractmethod
+    def sound(self):
+        pass
 
-print(chien.sound())
-print(chat.sound())
+class Dog(Animal):
+    def sound(self):
+        return "Bark"
 
-animal = Animal()
-print(animal.sound())
+class Cat(Animal):
+    def sound(self):
+        return "Meow"
