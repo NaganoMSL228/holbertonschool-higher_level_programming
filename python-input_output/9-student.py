@@ -1,17 +1,15 @@
 #!/usr/bin/python3
-'''Module for Student class'''
-
-import json
+'''module for student class'''
 
 
 class Student:
-    '''Class Student'''
+    '''student class'''
     def __init__(self, first_name, last_name, age):
-        '''Constructor for Student'''
+        '''initializes student instance'''
         self.first_name = first_name
         self.last_name = last_name
         self.age = age
 
     def to_json(self):
-        '''Returns dictionary representation of a Student instance'''
+        '''returns dictionary representation of student instance'''
         return self.__dict__
