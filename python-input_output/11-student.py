@@ -1,28 +1,24 @@
 #!/usr/bin/python3
-'''Module for Student class'''
-import json
+"""Defines a Student class."""
 
 
 class Student:
-    '''Student class'''
+    """Represent a student."""
+
     def __init__(self, first_name, last_name, age):
-        '''Constructor for Student'''
+        """Initialize a new Student."""
         self.first_name = first_name
         self.last_name = last_name
         self.age = age
 
     def to_json(self, attrs=None):
-        '''Returns dictionary representation of Student'''
+        """Get dictionary representation of
+        Student with attribute filtering."""
         if attrs is None:
             return self.__dict__
-        else:
-            new_dict = {}
-            for key in attrs:
-                if key in self.__dict__:
-                    new_dict[key] = self.__dict__[key]
-            return new_dict
+        return {k: v for k, v in self.__dict__.items() if k in attrs}
 
     def reload_from_json(self, json):
-        '''Replaces all attributes of the Student instance'''
-        for key in json:
-            setattr(self, key, json[key])
+        """Replace all attributes of the Student instance."""
+        for key, value in json.items():
+            setattr(self, key, value)
