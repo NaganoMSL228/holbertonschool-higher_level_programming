@@ -1,20 +1,26 @@
 #!/usr/bin/python3
-'''Module for add_item function'''
+'''module for add_item function'''
+
 
 import sys
 import os.path
-import json
 
-def add_item():
+
+def add_item(filename, *args):
     '''adds all arguments to a Python list, and then save them to a file'''
-    filename = 'add_item.json'
+    save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
+    load_json_file = __import__('6-load_from_json_file').load_from_json_file
+
     if os.path.exists(filename):
-        with open(filename,
-                    'r', encoding='utf-8') as f:
-                my_list = json.load(f)
+        my_list = load_json_file(filename)
     else:
         my_list = []
-    my_list.extend(sys.argv[1:])
-    with open
-    (filename, 'w', encoding='utf-8') as f:
-    json.dump(my_list, f)
+    my_list.extend(args)
+    save_to_json_file(my_list, filename)
+
+
+if __name__ == "__main__":
+
+    filename = "add_item.json"
+
+    add_item(filename, *sys.argv[1:])
