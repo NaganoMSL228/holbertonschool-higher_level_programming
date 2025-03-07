@@ -1,4 +1,3 @@
-
 #!/usr/bin/python3
 """Script that deletes all State objects with name containing 'a'"""
 
