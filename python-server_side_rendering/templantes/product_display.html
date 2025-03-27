@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Product Display</title>
+    <style>
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    {% include 'header.html' %}
+
+    <h1>Product Display</h1>
+
+    {% if error %}
+        <div class="error">{{ error }}</div>
+    {% else %}
+        {% if products %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Category</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for product in products %}
+                        <tr>
+                            <td>{{ product.id }}</td>
+                            <td>{{ product.name }}</td>
+                            <td>{{ product.category }}</td>
+                            <td>${{ product.price }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No products available.</p>
+        {% endif %}
+    {% endif %}
+
+    {% include 'footer.html' %}
+</body>
+</html>
